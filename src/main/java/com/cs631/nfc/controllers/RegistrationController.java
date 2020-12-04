@@ -20,18 +20,14 @@ import com.cs631.nfc.beans.Customer;
 @Controller
 public class RegistrationController {
 
-	@Autowired
-	private com.cs631.nfc.repository.UserRepository userRepository;
+	//@Autowired
+	//private com.cs631.nfc.repository.UserRepository userRepository;
 	
-	@InitBinder
-	public void initBinder(WebDataBinder binder) {
-		binder.registerCustomEditor
-		(Date.class, "dateOfBirth", new CustomDateEditor(new SimpleDateFormat("yyyy-MM-dd"),  true));
-	}
 	
+	/*
 	@PostMapping("/registeruser")
 	public String registerUser(
-			/* @Valid */ @ModelAttribute("newuser") Customer user, BindingResult result, Model model) {
+			 @Valid  @ModelAttribute("newuser") Customer user, BindingResult result, Model model) {
 		
 		if (result.hasErrors()) {
 			return "register";
@@ -39,8 +35,8 @@ public class RegistrationController {
 		
 		System.out.println("in registery controller");
 		//System.out.println(user.getDateOfBirth());
-		userRepository.save(user);
+		//userRepository.save(user);
 		model.addAttribute("dataSaved", "user registered successfully");
 		return "login";
-	}
+	}*/
 }
