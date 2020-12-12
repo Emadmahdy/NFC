@@ -34,7 +34,7 @@ public class CustomerAdd {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date dob;
 		
-private int  addid;
+	private int  addid;
 	
 	@NotNull
 	private String add1;

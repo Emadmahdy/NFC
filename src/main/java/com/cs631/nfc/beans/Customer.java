@@ -31,7 +31,7 @@ public class Customer {
 	@NotNull
 	private String lastname;
 	
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	//@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date dob;
 	
 	public Date getDob() {
@@ -45,8 +45,8 @@ public class Customer {
 	//@JoinTable(name = "address", joinColumns = {@JoinColumn(name="addid", referencedColumnName = "aid")})
 	//@JoinTable(name="address",
     //joinColumns={@JoinColumn(name="addid", referencedColumnName="aid")})
-	@OneToOne(targetEntity = Address.class, cascade = CascadeType.ALL)
-	@JoinColumn(name = "addid", referencedColumnName = "aid")
+	//@OneToOne(targetEntity = Address.class, cascade = CascadeType.ALL)
+	//@JoinColumn(name = "addid", referencedColumnName = "aid")
 	private int  addid;
 	
 	

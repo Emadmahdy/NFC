@@ -23,6 +23,13 @@ public class HomeContoller {
 		return "ViewCustomerInformation";
 	}
 	
+	
+	@GetMapping("/addNewCustomer")
+	public String addNewCustomer() {
+		System.out.println("We are in addNewCustomer controller");
+		return "addNewCustomer";
+	}
+	
 	@GetMapping("/goToSearch")
 	public String goToSearch() {
 		System.out.println("We are in search controller");

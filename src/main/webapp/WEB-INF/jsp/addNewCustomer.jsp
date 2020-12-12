@@ -6,7 +6,7 @@
 
 <head>
 <meta charset="UTF-8">
-<title>View Customer Information</title>
+<title>add new Customer</title>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <link
@@ -18,15 +18,16 @@
 </head>
 
 <body>
-<h1 align="center">Newark Fulfillment Centers</h1>
+	<h1 align="center">Newark Fulfillment Centers</h1>
 
-<ul class="nav nav-tabs">
+	<ul class="nav nav-tabs">
 		<li class="nav-item"><a class="nav-link active"
 			aria-current="page" href="/home">Home</a></li>
 		<li class="nav-item"><a class="nav-link active"
-			aria-current="page" href="/ViewCustomerInformation">Search Customer</a></li>
+			aria-current="page" href="/ViewCustomerInformation">Search
+				Customer</a></li>
 		<li class="nav-item"><a class="nav-link active"
-			aria-current="page" href="/addNewCustomer">Add new Customer</a></li>	
+			aria-current="page" href="/addNewCustomer">Add new Customer</a></li>
 		<li class="nav-item dropdown"><a class="nav-link dropdown-toggle"
 			data-bs-toggle="dropdown" href="#" role="button" aria-expanded="true">Dropdown</a>
 			<ul class="dropdown-menu">
@@ -37,29 +38,69 @@
 				<li><hr class="dropdown-divider"></li>
 				<li><a class="dropdown-item" href="#">Separated link</a></li>
 			</ul></li>
-		
+
 		<li class="nav-item"><a class="nav-link" href="#">Link</a></li>
 		<li class="nav-item"><a class="nav-link disabled" href="#"
 			tabindex="-1" aria-disabled="true">Disabled</a></li>
 	</ul>
-	
+
 	<div class="container-lg">
 		<section id="searchCustomer" class="section">
 			<div class="mb-2">
-				<br /> <br /><h2>Search Customer</h2><br /> <br />
-				<form:form method="post" action="/searchCustomer"
-					modelAttribute="customer">
-					<label>Customer ID</label>
-					<form:input path="cid" type="text" />
-					<form:errors path="cid" cssClass="error" />
-					<br />
-
+				<br /> <br />
+				<h2>Search Customer</h2>
+				<br /> <br />
+				<form:form method="post" action="/insertCustomer"
+					modelAttribute="customerAdd">
 					
 					<br />
+					<label>Username</label>
+					<form:input path="username" type="text" />
+					<form:errors path="username" cssClass="error" />
+					<br />
+					<label>Password</label>
+					<form:input path="password" type="password" />
+					<form:errors path="password" cssClass="error" />
+					<br />
+					<label>First Name</label>
+					<form:input path="firstname" type="text" />
+					<form:errors path="firstname" cssClass="error" />
+					<br />
+					<label>Last Name</label>
+					<form:input path="lastname" type="text" />
+					<form:errors path="lastname" cssClass="error" />
+					<br />
+					<label>Date of birth</label>
+					<form:input path="dob" type="date" />
+					<form:errors path="dob" cssClass="error" />
+					<br />
+					<label>Address 1</label>
+					<form:input path="add1" type="text" />
+					<form:errors path="add1" cssClass="error" />
+					<br />
+					<label>Address 2</label>
+					<form:input path="add2" type="text" />
+					<form:errors path="add2" cssClass="error" />
+					<br />
+					<label>city</label>
+					<form:input path="city" type="text" />
+					<form:errors path="city" cssClass="error" />
+					<br />
+					<label>state</label>
+					<form:input path="state" type="text" />
+					<form:errors path="state" cssClass="error" />
+					<br />
+					<label>Zip code</label>
+					<form:input path="zip" type="text" />
+					<form:errors path="dob" cssClass="error" />
+
+					<br />
 					<br />
 
-					<input type="submit" value="Submit" id="submit" class="btn btn-primary">
-					<input type="reset" value="reset" id="reset" class="btn btn-primary">
+					<input type="submit" value="Submit" id="submit"
+						class="btn btn-primary">
+					<input type="reset" value="reset" id="reset"
+						class="btn btn-primary">
 				</form:form>
 			</div>
 		</section>
