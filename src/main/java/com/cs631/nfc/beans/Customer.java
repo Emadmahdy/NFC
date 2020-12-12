@@ -1,75 +1,101 @@
 package com.cs631.nfc.beans;
 
+import java.sql.Date;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import com.sun.istack.NotNull;
 
 @Entity
+@Table(name = "customer")
 public class Customer {
 	
 	@Id
 	private int cid;
 	
 	@NotNull
-	private String firstName;
+	private String firstname;
 	
 	@NotNull
-	private String lastName;
-	private String add1;
-	private String add2;
-	private String city;
-	private String state;
-	private int zip;
+	private String lastname;
+	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date dob;
+	
+	public Date getDob() {
+		return dob;
+	}
+	public void setDob(Date dob) {
+		this.dob = dob;
+	}
+	
+	//@ManyToOne(fetch=FetchType.LAZY)
+	//@JoinTable(name = "address", joinColumns = {@JoinColumn(name="addid", referencedColumnName = "aid")})
+	//@JoinTable(name="address",
+    //joinColumns={@JoinColumn(name="addid", referencedColumnName="aid")})
+	@OneToOne(targetEntity = Address.class, cascade = CascadeType.ALL)
+	@JoinColumn(name = "addid", referencedColumnName = "aid")
+	private int  addid;
+	
+	
+	private String username;
+	private String password;
 
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
 	public int getCid() {
 		return cid;
 	}
 	public void setCid(int cid) {
 		this.cid = cid;
 	}
-	public String getFirstName() {
-		return firstName;
+	public String getfirstname() {
+		return firstname;
 	}
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public void setfirstname(String firstName) {
+		this.firstname = firstName;
 	}
-	public String getLastName() {
-		return lastName;
+	public String getlastname() {
+		return lastname;
 	}
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setlastname(String lastName) {
+		this.lastname = lastName;
 	}
-	public String getAdd1() {
-		return add1;
+	public int getaddid() {
+		return addid;
 	}
-	public void setAdd1(String add1) {
-		this.add1 = add1;
+	public void setaddid(int addid) {
+		this.addid = addid;
 	}
-	public String getAdd2() {
-		return add2;
+	@Override
+	public String toString() {
+		return "Customer [cid=" + cid + ", firstName=" + firstname + ", lastName=" + lastname + ", dob=" + dob
+				+ ", addid=" + addid + ", username=" + username + "]";
 	}
-	public void setAdd2(String add2) {
-		this.add2 = add2;
-	}
-	public String getCity() {
-		return city;
-	}
-	public void setCity(String city) {
-		this.city = city;
-	}
-	public String getState() {
-		return state;
-	}
-	public void setState(String state) {
-		this.state = state;
-	}
-	public int getZip() {
-		return zip;
-	}
-	public void setZip(int zip) {
-		this.zip = zip;
-	}
+	
+	
 	
 	
 }

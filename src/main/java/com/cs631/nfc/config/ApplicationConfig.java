@@ -24,8 +24,6 @@ import org.springframework.web.servlet.view.JstlView;
 import org.springframework.web.servlet.view.ResourceBundleViewResolver;
 import org.springframework.web.servlet.view.XmlViewResolver;
 
-//import com.test.hplus.converters.StringToEnumConverter;
-//import com.test.hplus.interceptors.LoggingInterceptor;
 
 @Configuration
 @ComponentScan(basePackages = "com.cs631.nfc")
@@ -49,5 +47,22 @@ public class ApplicationConfig extends WebMvcConfigurationSupport {
 
 	}
 
+	@Bean
+	public ThemeResolver themeResolver() {
+		CookieThemeResolver cookieThemeResolver = new CookieThemeResolver();
+		cookieThemeResolver.setCookieName("theme");
+		cookieThemeResolver.setDefaultThemeName("client-theme1");
+		return cookieThemeResolver;
+	}
+	
+	
+	@Bean
+	public LocaleResolver localeResolver() {
+		CookieLocaleResolver cookieLocaleResolver = new CookieLocaleResolver();
+		cookieLocaleResolver.setDefaultLocale(Locale.US);
+		cookieLocaleResolver.setCookieName("locale");
+		return cookieLocaleResolver;
+		
+	}
 	
 }

@@ -12,7 +12,7 @@ import com.cs631.nfc.beans.Login;
 @ControllerAdvice
 public class DefaultModelAttributeController {
 
-	@ModelAttribute("newcustomer")
+	@ModelAttribute("customer")
 	public Customer getDefualtUser() {
 		return new Customer();
 	}

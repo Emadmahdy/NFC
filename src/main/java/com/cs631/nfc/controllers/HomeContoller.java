@@ -17,6 +17,12 @@ public class HomeContoller {
 		return "index";
 	}
 	
+	@GetMapping("/ViewCustomerInformation")
+	public String ViewCustomerInformation() {
+		System.out.println("We are in ViewCustomerInformation controller");
+		return "ViewCustomerInformation";
+	}
+	
 	@GetMapping("/goToSearch")
 	public String goToSearch() {
 		System.out.println("We are in search controller");
