@@ -1,14 +1,17 @@
 package com.cs631.nfc.beans;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import com.sun.istack.NotNull;
 
 @Entity
-public class Order {
+public class Orders {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int oid;
 	
 	@NotNull
@@ -19,7 +22,22 @@ public class Order {
 	@NotNull
 	private int iid;
 	
+	private int amount;
 	
+	private int wid;
+	
+	
+	@Override
+	public String toString() {
+		return "Order [oid=" + oid + ", type=" + type + ", cid=" + cid + ", iid=" + iid + ", amount=" + amount
+				+ ", wid=" + wid + "]";
+	}
+	public int getWid() {
+		return wid;
+	}
+	public void setWid(int wid) {
+		this.wid = wid;
+	}
 	public int getOid() {
 		return oid;
 	}
@@ -50,5 +68,5 @@ public class Order {
 	public void setAmount(int amount) {
 		this.amount = amount;
 	}
-	private int amount;
+	
 }

@@ -6,7 +6,7 @@
 
 <head>
 <meta charset="UTF-8">
-<title>View Customer Information</title>
+<title>Add new Inventory</title>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <link
@@ -19,7 +19,7 @@
 
 <body>
 	<h1 align="center">Newark Fulfillment Centers</h1>
-	<h2>Warehouse Management</h2>
+	<h2>Warehouse Customer Inventory Management</h2>
 
 	<ul class="nav nav-tabs">
 		<li class="nav-item"><a class="nav-link active"
@@ -54,17 +54,32 @@
 		<section id="searchCustomer" class="section">
 			<div class="mb-2">
 				<br /> <br />
-				<h2>Search Customer</h2>
+				<h2>Add Order</h2>
 				<br /> <br />
-				<form:form method="post" action="/searchCustomer"
-					modelAttribute="customer">
+				<form:form method="post" action="/addOrder" modelAttribute="order">
+
+					<br />
+					<label>Type</label>
+					<form:input path="type" type="text" />
+					<form:errors path="type" cssClass="error" />
+					<br />
+					<label>amount</label>
+					<form:input path="amount" type="text" />
+					<form:errors path="amount" cssClass="error" />
+					<br />
+					<label>Inventory ID</label>
+					<form:input path="iid" type="text" />
+					<form:errors path="iid" cssClass="error" />
+					<br />
+					<label>Warehouse ID</label>
+					<form:input path="wid" type="text" />
+					<form:errors path="wid" cssClass="error" />
+					<br />
 					<label>Customer ID</label>
 					<form:input path="cid" type="text" />
 					<form:errors path="cid" cssClass="error" />
 					<br />
 
-
-					<br />
 					<br />
 
 					<input type="submit" value="Submit" id="submit"
@@ -74,51 +89,42 @@
 				</form:form>
 			</div>
 		</section>
-		<br /> <br />
+	</div>
+	<br />
+	<br />
 
-		<c:if test="${!empty customerReturn}">
-			<h3>Cutomer's information</h3>
+	<c:if test="${!empty confirm}">
+		<h3>Cutomer's Inventory</h3>
+		<div class="card">
+			<div class="card-body">
 
-			<div class="card">
-				<div class="card-body">
-					<div class="row">
-						<div class="col-sm">Cutomer ID</div>
-						<div class="col-sm">${customerReturn.get().cid}</div>
-					</div>
-					<div class="row">
-						<div class="col-sm">First name</div>
-						<div class="col-sm">${customerReturn.get().firstname}</div>
-					</div>
-					<div class="row">
-						<div class="col-sm">Last name</div>
-						<div class="col-sm">${customerReturn.get().lastname}</div>
-					</div>
-					<div class="row">
-						<div class="col-sm">Date of birth</div>
-						<div class="col-sm">${customerReturn.get().dob}</div>
-					</div>
-					<div class="row">
-						<div class="col-sm">Address 1</div>
-						<div class="col-sm">${customerReturn.get().add1}</div>
-					</div>
-					<div class="row">
-						<div class="col-sm">Address 2</div>
-						<div class="col-sm">${customerReturn.get().add2}</div>
-					</div>
-					<div class="row">
-						<div class="col-sm">City</div>
-						<div class="col-sm">${customerReturn.get().city}</div>
-					</div>
-					<div class="row">
-						<div class="col-sm">State</div>
-						<div class="col-sm">${customerReturn.get().state}</div>
-					</div>
-					<div class="row">
-						<div class="col-sm">Zip</div>
-						<div class="col-sm">${customerReturn.get().zip}</div>
-					</div>
+				<div class="row">
+					<div class="col-sm">Order ID</div>
+					<div class="col-sm">${confirm.oid}</div>
 				</div>
+				<div class="row">
+					<div class="col-sm">Cutomer ID</div>
+					<div class="col-sm">${confirm.cid}</div>
+				</div>
+				<div class="row">
+					<div class="col-sm">Inventory ID</div>
+					<div class="col-sm">${confirm.iid}</div>
+				</div>
+				<div class="row">
+					<div class="col-sm">Type</div>
+					<div class="col-sm">${confirm.type}</div>
+				</div>
+				<div class="row">
+					<div class="col-sm">amount</div>
+					<div class="col-sm">${confirm.amount}</div>
+				</div>
+				<div class="row">
+					<div class="col-sm">Warehouse</div>
+					<div class="col-sm">${confirm.wid}</div>
+				</div>
+
 			</div>
-		</c:if>
+		</div>
+	</c:if>
 </body>
 </html>

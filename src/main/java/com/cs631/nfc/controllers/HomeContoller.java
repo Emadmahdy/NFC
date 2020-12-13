@@ -30,6 +30,33 @@ public class HomeContoller {
 		return "addNewCustomer";
 	}
 	
+	
+	
+	@GetMapping("/addNewInventory")
+	public String addNewInventory() {
+		System.out.println("We are in addNewInventory controller");
+		return "addNewInventory";
+	}
+	
+	
+	@GetMapping("/ViewAvailableInventory")
+	public String ViewAvailableInventory() {
+		System.out.println("We are in ViewAvailableInventory controller");
+		return "ViewAvailableInventory";
+	}
+	
+	@GetMapping("/ViewOrder")
+	public String ViewOrder() {
+		System.out.println("We are in ViewOrder controller");
+		return "ViewOrder";
+	}
+	
+	@GetMapping("/addNewOrder")
+	public String addNewOrder() {
+		System.out.println("We are in addNewOrder controller");
+		return "addNewOrder";
+	}
+	
 	@GetMapping("/goToSearch")
 	public String goToSearch() {
 		System.out.println("We are in search controller");

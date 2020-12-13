@@ -6,7 +6,7 @@
 
 <head>
 <meta charset="UTF-8">
-<title>View Customer Information</title>
+<title>View Customer Inventory</title>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <link
@@ -19,7 +19,7 @@
 
 <body>
 	<h1 align="center">Newark Fulfillment Centers</h1>
-	<h2>Warehouse Management</h2>
+	<h2>Warehouse Customer Inventory Management</h2>
 
 	<ul class="nav nav-tabs">
 		<li class="nav-item"><a class="nav-link active"
@@ -54,9 +54,9 @@
 		<section id="searchCustomer" class="section">
 			<div class="mb-2">
 				<br /> <br />
-				<h2>Search Customer</h2>
+				<h2>Search Customer's inventory</h2>
 				<br /> <br />
-				<form:form method="post" action="/searchCustomer"
+				<form:form method="post" action="/searchCustomerInventory"
 					modelAttribute="customer">
 					<label>Customer ID</label>
 					<form:input path="cid" type="text" />
@@ -119,6 +119,38 @@
 					</div>
 				</div>
 			</div>
+		</c:if>
+		<c:if test="${!empty returnInv}">
+			<h3>Cutomer's Inventory</h3>
+			<c:forEach var="returnInvItem" items="${returnInv}">
+				<div class="card">
+
+					<div class="card-body">
+
+						<div class="row">
+							<div class="col-sm">Cutomer ID</div>
+							<div class="col-sm">${returnInvItem.cid}</div>
+						</div>
+						<div class="row">
+							<div class="col-sm">Inventory ID</div>
+							<div class="col-sm">${returnInvItem.iid}</div>
+						</div>
+						<div class="row">
+							<div class="col-sm">Name</div>
+							<div class="col-sm">${returnInvItem.name}</div>
+						</div>
+						<div class="row">
+							<div class="col-sm">amount</div>
+							<div class="col-sm">${returnInvItem.amount}</div>
+						</div>
+						<div class="row">
+							<div class="col-sm">Warehouse</div>
+							<div class="col-sm">${returnInvItem.wid}</div>
+						</div>
+
+					</div>
+				</div>
+			</c:forEach>
 		</c:if>
 </body>
 </html>

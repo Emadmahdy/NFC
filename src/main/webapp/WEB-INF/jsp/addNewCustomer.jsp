@@ -19,6 +19,7 @@
 
 <body>
 	<h1 align="center">Newark Fulfillment Centers</h1>
+	<h2>Warehouse Management</h2>
 
 	<ul class="nav nav-tabs">
 		<li class="nav-item"><a class="nav-link active"
@@ -38,10 +39,15 @@
 				<li><hr class="dropdown-divider"></li>
 				<li><a class="dropdown-item" href="#">Separated link</a></li>
 			</ul></li>
-
-		<li class="nav-item"><a class="nav-link" href="#">Link</a></li>
-		<li class="nav-item"><a class="nav-link disabled" href="#"
-			tabindex="-1" aria-disabled="true">Disabled</a></li>
+		<li class="nav-item"><a class="nav-link active"
+			aria-current="page" href="/addNewInventory">Add new Inventory</a></li>
+		<li class="nav-item"><a class="nav-link active"
+			aria-current="page" href="/ViewAvailableInventory">View Available
+				Inventory</a></li>
+		<li class="nav-item"><a class="nav-link active"
+			aria-current="page" href="/addNewOrder">Add new Inventory</a></li>
+		<li class="nav-item"><a class="nav-link active"
+			aria-current="page" href="/ViewOrder">View Available Inventory</a></li>
 	</ul>
 
 	<div class="container-lg">
@@ -52,7 +58,7 @@
 				<br /> <br />
 				<form:form method="post" action="/insertCustomer"
 					modelAttribute="customerAdd">
-					
+
 					<br />
 					<label>Username</label>
 					<form:input path="username" type="text" />
@@ -113,40 +119,21 @@
 				<div class="card-body">
 					<div class="row">
 						<div class="col-sm">Cutomer ID</div>
-						<div class="col-sm">${customerReturn.get().cid}</div>
+						<div class="col-sm">${customerReturn.cid}</div>
 					</div>
 					<div class="row">
 						<div class="col-sm">First name</div>
-						<div class="col-sm">${customerReturn.get().firstname}</div>
+						<div class="col-sm">${customerReturn.firstname}</div>
 					</div>
 					<div class="row">
 						<div class="col-sm">Last name</div>
-						<div class="col-sm">${customerReturn.get().lastname}</div>
+						<div class="col-sm">${customerReturn.lastname}</div>
 					</div>
 					<div class="row">
 						<div class="col-sm">Date of birth</div>
-						<div class="col-sm">${customerReturn.get().dob}</div>
+						<div class="col-sm">${customerReturn.dob}</div>
 					</div>
-					<div class="row">
-						<div class="col-sm">Address 1</div>
-						<div class="col-sm">${customerReturn.get().add1}</div>
-					</div>
-					<div class="row">
-						<div class="col-sm">Address 2</div>
-						<div class="col-sm">${customerReturn.get().add2}</div>
-					</div>
-					<div class="row">
-						<div class="col-sm">City</div>
-						<div class="col-sm">${customerReturn.get().city}</div>
-					</div>
-					<div class="row">
-						<div class="col-sm">State</div>
-						<div class="col-sm">${customerReturn.get().state}</div>
-					</div>
-					<div class="row">
-						<div class="col-sm">Zip</div>
-						<div class="col-sm">${customerReturn.get().zip}</div>
-					</div>
+
 				</div>
 			</div>
 		</c:if>

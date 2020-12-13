@@ -6,6 +6,8 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -23,6 +25,7 @@ import com.sun.istack.NotNull;
 public class Customer {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int cid;
 	
 	@NotNull
@@ -32,13 +35,13 @@ public class Customer {
 	private String lastname;
 	
 	//@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date dob;
+	private java.util.Date dob;
 	
-	public Date getDob() {
+	public java.util.Date getDob() {
 		return dob;
 	}
-	public void setDob(Date dob) {
-		this.dob = dob;
+	public void setDob(java.util.Date date) {
+		this.dob = date;
 	}
 	
 	//@ManyToOne(fetch=FetchType.LAZY)

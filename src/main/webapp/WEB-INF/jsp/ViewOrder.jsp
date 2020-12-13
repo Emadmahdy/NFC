@@ -6,7 +6,7 @@
 
 <head>
 <meta charset="UTF-8">
-<title>View Customer Information</title>
+<title>View Order</title>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <link
@@ -19,7 +19,7 @@
 
 <body>
 	<h1 align="center">Newark Fulfillment Centers</h1>
-	<h2>Warehouse Management</h2>
+	<h2>Customer Inventory Management</h2>
 
 	<ul class="nav nav-tabs">
 		<li class="nav-item"><a class="nav-link active"
@@ -45,18 +45,19 @@
 			aria-current="page" href="/ViewAvailableInventory">View Available
 				Inventory</a></li>
 		<li class="nav-item"><a class="nav-link active"
-			aria-current="page" href="/addNewOrder">Add new Inventory</a></li>
+			aria-current="page" href="/addNewOrder">Add new Order</a></li>
 		<li class="nav-item"><a class="nav-link active"
-			aria-current="page" href="/ViewOrder">View Available Inventory</a></li>
+			aria-current="page" href="/ViewOrder">View Available Order</a></li>
+
 	</ul>
 
 	<div class="container-lg">
 		<section id="searchCustomer" class="section">
 			<div class="mb-2">
 				<br /> <br />
-				<h2>Search Customer</h2>
+				<h2>Search Customer's Order</h2>
 				<br /> <br />
-				<form:form method="post" action="/searchCustomer"
+				<form:form method="post" action="/searchOrder"
 					modelAttribute="customer">
 					<label>Customer ID</label>
 					<form:input path="cid" type="text" />
@@ -119,6 +120,38 @@
 					</div>
 				</div>
 			</div>
+		</c:if>
+		<c:if test="${!empty returnOrder}">
+			<h3>Cutomer's Orders</h3>
+			<c:forEach var="returnOrderItem" items="${returnOrder}">
+				<div class="card">
+
+					<div class="card-body">
+
+						<div class="row">
+							<div class="col-sm">Cutomer ID</div>
+							<div class="col-sm">${returnOrderItem.cid}</div>
+						</div>
+						<div class="row">
+							<div class="col-sm">Order ID</div>
+							<div class="col-sm">${returnOrderItem.oid}</div>
+						</div>
+						<div class="row">
+							<div class="col-sm">Amount</div>
+							<div class="col-sm">${returnOrderItem.amount}</div>
+						</div>
+						<div class="row">
+							<div class="col-sm">Type</div>
+							<div class="col-sm">${returnOrderItem.type}</div>
+						</div>
+						<div class="row">
+							<div class="col-sm">Warehouse</div>
+							<div class="col-sm">${returnOrderItem.wid}</div>
+						</div>
+
+					</div>
+				</div>
+			</c:forEach>
 		</c:if>
 </body>
 </html>
