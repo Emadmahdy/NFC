@@ -29,25 +29,16 @@
 				Customer</a></li>
 		<li class="nav-item"><a class="nav-link active"
 			aria-current="page" href="/addNewCustomer">Add new Customer</a></li>
-		<li class="nav-item dropdown"><a class="nav-link dropdown-toggle"
-			data-bs-toggle="dropdown" href="#" role="button" aria-expanded="true">Dropdown</a>
-			<ul class="dropdown-menu">
-				<li><a class="dropdown-item" href="/ViewCustomerInformation">Action</a></li>
-				<li><a class="dropdown-item" href="/ViewCustomerInformation">Another
-						action</a></li>
-				<li><a class="dropdown-item" href="#">Something else here</a></li>
-				<li><hr class="dropdown-divider"></li>
-				<li><a class="dropdown-item" href="#">Separated link</a></li>
-			</ul></li>
 		<li class="nav-item"><a class="nav-link active"
 			aria-current="page" href="/addNewInventory">Add new Inventory</a></li>
 		<li class="nav-item"><a class="nav-link active"
 			aria-current="page" href="/ViewAvailableInventory">View Available
 				Inventory</a></li>
 		<li class="nav-item"><a class="nav-link active"
-			aria-current="page" href="/addNewOrder">Add new Inventory</a></li>
+			aria-current="page" href="/addNewOrder">Add new Order</a></li>
 		<li class="nav-item"><a class="nav-link active"
-			aria-current="page" href="/ViewOrder">View Available Inventory</a></li>
+			aria-current="page" href="/ViewOrder">View Available Order</a></li>
+
 	</ul>
 
 	<div class="container-lg">
