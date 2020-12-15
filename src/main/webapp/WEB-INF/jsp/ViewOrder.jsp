@@ -38,7 +38,8 @@
 			aria-current="page" href="/addNewOrder">Add new Order</a></li>
 		<li class="nav-item"><a class="nav-link active"
 			aria-current="page" href="/ViewOrder">View Available Order</a></li>
-
+		<li class="nav-item"><a class="nav-link active"
+			aria-current="page" href="/employeeView">Employee View</a></li>
 	</ul>
 
 	<div class="container-lg">
@@ -53,11 +54,6 @@
 					<form:input path="cid" type="text" />
 					<form:errors path="cid" cssClass="error" />
 					<br />
-
-
-					<br />
-					<br />
-
 					<input type="submit" value="Submit" id="submit"
 						class="btn btn-primary">
 					<input type="reset" value="reset" id="reset"

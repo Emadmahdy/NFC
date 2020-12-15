@@ -1,5 +1,7 @@
 package com.cs631.nfc.controllers;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -134,7 +136,7 @@ public class InsertController {
 
 	
 	@PostMapping("/addOrder")
-	public ModelAndView insertOrder(@ModelAttribute("order") Orders order, BindingResult result,
+	public ModelAndView insertOrder(@ModelAttribute("orders") Orders order, BindingResult result,
 			Model model) {
 		System.out.println("in insertOrder controller");
 		
@@ -146,6 +148,7 @@ public class InsertController {
 			return modelAndView;
 		}
 		
+		order.setDate(Calendar.getInstance().getTime());
 		Orders confirm = customerOrderRepository.save(order);
 		System.out.println(confirm.toString());
 		

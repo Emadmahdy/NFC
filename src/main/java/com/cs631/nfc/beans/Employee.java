@@ -1,82 +1,68 @@
 package com.cs631.nfc.beans;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import com.sun.istack.NotNull;
 
 @Entity
+@Table(name = "employee")
 public class Employee {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int eid;
 	
 	@NotNull
-	private String firstName;
+	private String firstname;
 	
 	@NotNull
-	private String lastName;
-	private String add1;
-	private String add2;
-	private String city;
-	private String state;
-	private int zip;
-	private String role;
+	private String lastname;
+	private int addid;
+	private int role;
 	
 	
-	public String getRole() {
-		return role;
-	}
-	public void setRole(String role) {
-		this.role = role;
-	}
-	public int getCid() {
+	
+	public int getEid() {
 		return eid;
 	}
-	public void setCid(int cid) {
-		this.eid = cid;
+	public void setEid(int eid) {
+		this.eid = eid;
 	}
-	public String getFirstName() {
-		return firstName;
+	public String getfirstname() {
+		return firstname;
 	}
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public void setfirstname(String firstname) {
+		this.firstname = firstname;
 	}
-	public String getLastName() {
-		return lastName;
+	public String getlastname() {
+		return lastname;
 	}
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setlastname(String lastname) {
+		this.lastname = lastname;
 	}
-	public String getAdd1() {
-		return add1;
+	public int getAddid() {
+		return addid;
 	}
-	public void setAdd1(String add1) {
-		this.add1 = add1;
+	public void setAddid(int addid) {
+		this.addid = addid;
 	}
-	public String getAdd2() {
-		return add2;
+	public int getRole() {
+		return role;
 	}
-	public void setAdd2(String add2) {
-		this.add2 = add2;
+	public void setRole(int role) {
+		this.role = role;
 	}
-	public String getCity() {
-		return city;
+	@Override
+	public String toString() {
+		return "Employee [eid=" + eid + ", firstname=" + firstname + ", lastname=" + lastname + ", addid=" + addid
+				+ ", role=" + role + "]";
 	}
-	public void setCity(String city) {
-		this.city = city;
-	}
-	public String getState() {
-		return state;
-	}
-	public void setState(String state) {
-		this.state = state;
-	}
-	public int getZip() {
-		return zip;
-	}
-	public void setZip(int zip) {
-		this.zip = zip;
-	}
+	
+	
+	
 	
 }

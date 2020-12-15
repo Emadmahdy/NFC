@@ -55,6 +55,24 @@ public class HomeContoller {
 	public String addNewOrder() {
 		System.out.println("We are in addNewOrder controller");
 		return "addNewOrder";
+	} 
+	
+	@GetMapping("/employeeView")
+	public String employeeView() {
+		System.out.println("We are in employeeView controller");
+		return "employeeView";
+	}
+	
+	@GetMapping("/employeeView/{eid}")
+	public String employeeViewUpdate() {
+		System.out.println("We are in employeeView controller");
+		return "employeeView";
+	}
+	
+	@GetMapping("/UpdateInventory/{iid}")
+	public String UpdateInventory() {
+		System.out.println("We are in employeeView controller");
+		return "ViewAvailableInventory";
 	}
 	
 	@GetMapping("/goToSearch")

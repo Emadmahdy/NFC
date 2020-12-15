@@ -1,13 +1,19 @@
 package com.cs631.nfc.beans;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import com.sun.istack.NotNull;
 
 @Entity
+@Table(name = "orders")
 public class Orders {
 
 	@Id
@@ -26,12 +32,12 @@ public class Orders {
 	
 	private int wid;
 	
+	@DateTimeFormat(pattern = "MM-dd-yyyy")
+	private Date date;
 	
-	@Override
-	public String toString() {
-		return "Order [oid=" + oid + ", type=" + type + ", cid=" + cid + ", iid=" + iid + ", amount=" + amount
-				+ ", wid=" + wid + "]";
-	}
+	private boolean processed;
+	
+	
 	public int getWid() {
 		return wid;
 	}
@@ -67,6 +73,23 @@ public class Orders {
 	}
 	public void setAmount(int amount) {
 		this.amount = amount;
+	}
+	public Date getDate() {
+		return date;
+	}
+	public void setDate(Date date) {
+		this.date = date;
+	}
+	public boolean isProcessed() {
+		return processed;
+	}
+	public void setProcessed(boolean processed) {
+		this.processed = processed;
+	}
+	@Override
+	public String toString() {
+		return "Orders [oid=" + oid + ", type=" + type + ", cid=" + cid + ", iid=" + iid + ", amount=" + amount
+				+ ", wid=" + wid + ", date=" + date + ", processed=" + processed + "]";
 	}
 	
 }

@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 
 import com.cs631.nfc.beans.Customer;
 import com.cs631.nfc.beans.CustomerAdd;
+import com.cs631.nfc.beans.Employee;
+import com.cs631.nfc.beans.EmployeeAddRole;
 import com.cs631.nfc.beans.Inventory;
 import com.cs631.nfc.beans.Login;
 import com.cs631.nfc.beans.Orders;
@@ -27,9 +29,19 @@ public class DefaultModelAttributeController {
 		return new Inventory();
 	}
 	
-	@ModelAttribute("order")
+	@ModelAttribute("orders")
 	public Orders addOrder() {
 		return new Orders();
+	}
+	
+	@ModelAttribute("employee")
+	public Employee employee() {
+		return new Employee();
+	}
+	
+	@ModelAttribute("employeeAdd")
+	public EmployeeAddRole employeeAdd() {
+		return new EmployeeAddRole();
 	}
 	
 	@ModelAttribute("login")

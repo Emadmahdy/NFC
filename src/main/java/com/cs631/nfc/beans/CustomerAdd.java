@@ -44,7 +44,7 @@ public class CustomerAdd {
 	@NotNull
 	private String add1;
 	
-	@NotNull
+	
 	private String add2;
 	
 	@NotNull

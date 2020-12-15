@@ -6,16 +6,20 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.cs631.nfc.beans.Customer;
 import com.cs631.nfc.beans.CustomerAdd;
+import com.cs631.nfc.beans.EmployeeAddRole;
 import com.cs631.nfc.beans.Inventory;
+import com.cs631.nfc.beans.Orders;
 import com.cs631.nfc.repository.CustomerInventoryRepository;
 import com.cs631.nfc.repository.CustomerRepository;
 
@@ -48,6 +52,31 @@ public class SearchInventoryController {
 		System.out.println(returnInv.toString());
 		modelAndView.addObject("returnInv", returnInv);
 		modelAndView.setViewName("ViewAvailableInventory");
+		return modelAndView;
+	}
+	
+	
+	@PostMapping("/UpdateInventory/{iid}")
+	public ModelAndView UpdateInventory(@ModelAttribute("inventory") Inventory inventory,@PathVariable("iid") int iid, BindingResult result, ModelAndView modelAndView) {
+		System.out.println("in UpdateInventory controller");
+		
+		int newAmount = inventory.getAmount();
+		int cid = inventory.getCid();
+		System.out.println("new amount is: " + newAmount);
+		System.out.println(inventory.getCid());
+		
+		int invReturn = customerInventoryRepository.UpdateInv(iid, newAmount);
+		System.out.println("update confirmation" + invReturn);
+		
+		Inventory[] returnInv = customerInventoryRepository.searchById(cid);
+
+		modelAndView.addObject("returnInv", returnInv);
+
+		
+		
+
+		modelAndView.setViewName("ViewAvailableInventory");
+		
 		return modelAndView;
 	}
 

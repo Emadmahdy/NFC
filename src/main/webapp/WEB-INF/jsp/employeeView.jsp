@@ -6,7 +6,7 @@
 
 <head>
 <meta charset="UTF-8">
-<title>View Customer Inventory</title>
+<title>View Customer Information</title>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <link
@@ -19,7 +19,7 @@
 
 <body>
 	<h1 align="center">Newark Fulfillment Centers</h1>
-	<h2>Warehouse Customer Inventory Management</h2>
+	<h2>Warehouse Management</h2>
 
 	<ul class="nav nav-tabs">
 		<li class="nav-item"><a class="nav-link active"
@@ -46,15 +46,15 @@
 		<section id="searchCustomer" class="section">
 			<div class="mb-2">
 				<br /> <br />
-				<h2>Search Customer's inventory</h2>
+				<h2>Employee ID</h2>
 				<br /> <br />
-				<form:form method="post" action="/searchCustomerInventory"
-					modelAttribute="customer">
-					<label>Customer ID</label>
-					<form:input path="cid" type="text" />
-					<form:errors path="cid" cssClass="error" />
+				<form:form method="post" action="/employeeSearch"
+					modelAttribute="employee">
+					<label>Employee ID</label>
+					<form:input path="eid" type="text" />
+					<form:errors path="eid" cssClass="error" />
 					<br />
-
+					<br />
 					<input type="submit" value="Submit" id="submit"
 						class="btn btn-primary">
 					<input type="reset" value="reset" id="reset"
@@ -64,96 +64,105 @@
 		</section>
 		<br /> <br />
 
-		<c:if test="${!empty customerReturn}">
-			<h3>Cutomer's information</h3>
+		<c:if test="${!empty employeeReturn}">
+			<h3>employee's information</h3>
 
 			<div class="card">
 				<div class="card-body">
 					<div class="row">
-						<div class="col-sm">Cutomer ID</div>
-						<div class="col-sm">${customerReturn.get().cid}</div>
+						<div class="col-sm">Employee ID</div>
+						<div class="col-sm">${employeeReturn.eid}</div>
+					</div>
+					<div class="row">
+						<div class="col-sm">Employee role ID</div>
+						<div class="col-sm">${employeeReturn.role}</div>
+					</div>
+					<div class="row">
+						<div class="col-sm">Employee role name</div>
+						<div class="col-sm">${employeeReturn.name}</div>
 					</div>
 					<div class="row">
 						<div class="col-sm">First name</div>
-						<div class="col-sm">${customerReturn.get().firstname}</div>
+						<div class="col-sm">${employeeReturn.firstname}</div>
 					</div>
 					<div class="row">
 						<div class="col-sm">Last name</div>
-						<div class="col-sm">${customerReturn.get().lastname}</div>
-					</div>
-					<div class="row">
-						<div class="col-sm">Date of birth</div>
-						<div class="col-sm">${customerReturn.get().dob}</div>
+						<div class="col-sm">${employeeReturn.lastname}</div>
 					</div>
 					<div class="row">
 						<div class="col-sm">Address 1</div>
-						<div class="col-sm">${customerReturn.get().add1}</div>
+						<div class="col-sm">${employeeReturn.add1}</div>
 					</div>
 					<div class="row">
 						<div class="col-sm">Address 2</div>
-						<div class="col-sm">${customerReturn.get().add2}</div>
+						<div class="col-sm">${employeeReturn.add2}</div>
 					</div>
 					<div class="row">
 						<div class="col-sm">City</div>
-						<div class="col-sm">${customerReturn.get().city}</div>
+						<div class="col-sm">${employeeReturn.city}</div>
 					</div>
 					<div class="row">
 						<div class="col-sm">State</div>
-						<div class="col-sm">${customerReturn.get().state}</div>
+						<div class="col-sm">${employeeReturn.state}</div>
 					</div>
 					<div class="row">
 						<div class="col-sm">Zip</div>
-						<div class="col-sm">${customerReturn.get().zip}</div>
+						<div class="col-sm">${employeeReturn.zip}</div>
 					</div>
 				</div>
 			</div>
 		</c:if>
-		<c:if test="${!empty returnInv}">
-			</br>
-			</br>
-			<h3>Cutomer's Inventory</h3>
-			<c:forEach var="returnInvItem" items="${returnInv}">
+		<br /> <br />
+		<c:if test="${!empty unprocessedOrders}">
+			<h3>Unprocessed Orders</h3>
+			<c:forEach var="unprocessedOrdersItem" items="${unprocessedOrders}">
 				<div class="card">
 
 					<div class="card-body">
-						<form:form method="post"
-							action="/UpdateInventory/${returnInvItem.iid}"
-							modelAttribute="inventory">
-							
+						<form:form method="post" action="/markProccessed/${employeeReturn.eid}"
+							modelAttribute="orders">
 							<div class="row">
-								<div class="col-sm">Cutomer ID</div>
-								<div class="col-sm">${returnInvItem.cid}</div>
-								<form:hidden path="cid" value="${returnInvItem.cid}"/>
-							</div>
-							<div class="row">
-								<div class="col-sm">Inventory ID</div>
-								<div class="col-sm">${returnInvItem.iid}</div>
-								<form:hidden path="iid" value="${returnInvItem.iid}"/>
-							</div>
-							<div class="row">
-								<div class="col-sm">Name</div>
-								<div class="col-sm">${returnInvItem.name}</div>
-							</div>
-							<div class="row">
-								<div class="col-sm">amount</div>
-								<div class="col-sm">${returnInvItem.amount}</div>
+								<div class="col-sm">Order ID</div>
+								<div class="col-sm">${unprocessedOrdersItem.oid}</div>
+								<form:hidden path="oid" value="${unprocessedOrdersItem.oid}"/>
 								
 							</div>
 							<div class="row">
-								<div class="col-sm">Warehouse</div>
-								<div class="col-sm">${returnInvItem.wid}</div>
+								<div class="col-sm">Cutomer ID</div>
+								<div class="col-sm">${unprocessedOrdersItem.cid}</div>
 							</div>
-							</br>
-							<div class="col-sm">New amount</div>
-							<form:input class="col-sm" path="amount" value="${returnInvItem.amount}"/>
-							<input type="submit" value="Update Inventory" id="submit"
+							<div class="row">
+								<div class="col-sm">Inventory ID</div>
+								<div class="col-sm">${unprocessedOrdersItem.iid}</div>
+							</div>
+							<div class="row">
+								<div class="col-sm">Amount</div>
+								<div class="col-sm">${unprocessedOrdersItem.amount}</div>
+							</div>
+							<div class="row">
+								<div class="col-sm">Type</div>
+								<div class="col-sm">${unprocessedOrdersItem.type}</div>
+							</div>
+							<div class="row">
+								<div class="col-sm">Warehouse</div>
+								<div class="col-sm">${unprocessedOrdersItem.wid}</div>
+							</div>
+							<div class="row">
+								<div class="col-sm">Date</div>
+								<div class="col-sm">${unprocessedOrdersItem.date}</div>
+							</div>
+							<div class="row">
+								<div class="col-sm">Processed</div>
+								<div class="col-sm">${unprocessedOrdersItem.processed}</div>
+							</div>
+							<br />
+							<input type="submit" value="Mark processed" id="submit"
 								class="btn btn-primary">
 						</form:form>
-						</br>
+						<br />
 					</div>
 				</div>
-				</br>
-				</br>
+				<br />
 			</c:forEach>
 		</c:if>
 </body>

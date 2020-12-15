@@ -38,7 +38,8 @@
 			aria-current="page" href="/addNewOrder">Add new Order</a></li>
 		<li class="nav-item"><a class="nav-link active"
 			aria-current="page" href="/ViewOrder">View Available Order</a></li>
-
+		<li class="nav-item"><a class="nav-link active"
+			aria-current="page" href="/employeeView">Employee View</a></li>
 	</ul>
 
 	<div class="container-lg">
@@ -47,7 +48,7 @@
 				<br /> <br />
 				<h2>Add Order</h2>
 				<br /> <br />
-				<form:form method="post" action="/addOrder" modelAttribute="order">
+				<form:form method="post" action="/addOrder" modelAttribute="orders">
 
 					<br />
 					<label>Type</label>
@@ -69,6 +70,7 @@
 					<label>Customer ID</label>
 					<form:input path="cid" type="text" />
 					<form:errors path="cid" cssClass="error" />
+					
 					<br />
 
 					<br />

@@ -38,7 +38,8 @@
 			aria-current="page" href="/addNewOrder">Add new Order</a></li>
 		<li class="nav-item"><a class="nav-link active"
 			aria-current="page" href="/ViewOrder">View Available Order</a></li>
-
+		<li class="nav-item"><a class="nav-link active"
+			aria-current="page" href="/employeeView">Employee View</a></li>
 	</ul>
 
 	<div class="container-lg">

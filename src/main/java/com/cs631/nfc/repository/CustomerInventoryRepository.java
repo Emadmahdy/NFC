@@ -52,5 +52,11 @@ public interface CustomerInventoryRepository extends CrudRepository<Inventory, I
 	
 	@Query(value = "SELECT * FROM inventory i where i.cid = :cid", nativeQuery = true)
 	public Inventory[] searchById(@Param("cid") int cid);
+	
+	
+	@Modifying
+	@Transactional
+	@Query(value = "update  inventory set amount = :amount where iid = :iid", nativeQuery = true)
+	public int UpdateInv(@Param("iid") int iid, @Param("amount") int amount);
 
 }
